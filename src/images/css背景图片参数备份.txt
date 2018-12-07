@@ -1,0 +1,34 @@
+.bg-daikuan2x2 {
+    width: 34px; height: 34px;
+    background: url('css_sprites.png') -10px -10px;
+}
+
+x
+.bg-daikuanx2 {
+    width: 34px; height: 34px;
+    background: url('css_sprites.png') -10px -64px;
+}
+
+x
+.bg-shouye2x2 {
+    width: 34px; height: 34px;
+    background: url('css_sprites.png') -10px -118px;
+}
+
+x
+.bg-shouyex2 {
+    width: 34px; height: 34px;
+    background: url('css_sprites.png') -10px -172px;
+}
+
+x
+.bg-wode2x2 {
+    width: 34px; height: 34px;
+    background: url('css_sprites.png') -10px -226px;
+}
+
+x
+.bg-wodex2 {
+    width: 34px; height: 34px;
+    background: url('css_sprites.png') -10px -280px;
+}

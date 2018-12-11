@@ -1,6 +1,8 @@
 import React from 'react';
 import './nav.scss'
-export default class Nav extends React.Component{
+import { withRouter } from 'react-router-dom';
+
+class Nav extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -17,6 +19,7 @@ export default class Nav extends React.Component{
         this.setState({
             TabIndex:index
         })
+        console.log(this.props)
     }
     render(){
         const nav = this.state.Tab;
@@ -38,3 +41,4 @@ export default class Nav extends React.Component{
         )
     }
 }
+export default withRouter(Nav)

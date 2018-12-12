@@ -2,7 +2,7 @@
     height: 1rem; background: #fff; box-sizing: border-box; padding: .15rem 0 0 0; position: fixed; bottom: 0; left: 0; width: 100%;
     .icon{
         background: url("../../images/nav-icon.png") no-repeat ; background-size: .54rem 3.24rem; width: .34rem; height: .34rem; display: block;
-        transition: all .5s; -webkit-transition: all .5s;
+        // transition: all .5s; -webkit-transition: all .5s;
     }
     .icon-1-active{
         background-position: -.1rem -1.72rem;
@@ -23,7 +23,8 @@
         background-position:  -.1rem -2.26rem; 
     }
     span{
-        color: #737373;padding: .1rem 0 0 0;  transition: all .5s; -webkit-transition: all .5s; font-size: .2rem
+        color: #737373;padding: .1rem 0 0 0;  font-size: .2rem;
+        // transition: all .5s; -webkit-transition: all .5s;
     }
     .spancolor{
         color: #333333; 

@@ -2,21 +2,14 @@
     Date:2018/12/07,
     USE:验证，通用
 */
-//验证电话,验证码,纯数字
+//纯数字
 export const ProvingMobile = (value="",length) => {
     let s = value.length > length ? (value+'').substring(0,length) : value;
     var rex = /[^\d]/;
     const str = (s+'').replace(rex,'')
     return str;
 }
-//验证银行卡
-export const ProvingBank = (value='')=>{
-    let s = value.length > 23 ? (value+'').substring(0,23) : value;
-    var rex = /[^\d\s]/;
-    const str = (s+'').replace(rex,'')
-    return str;
-}
-//身份证校验
+//验证身份证输入
 export const ProvingID = (value="") => {
     let s = value.length > 18 ? (value+'').substring(0,18) : value;
     const rex = /[^\dxX]/g;
@@ -30,4 +23,13 @@ export const ProvingEmail = (value="")=>{
         return true
     }
     return false
-} 
+}
+
+export const setCommparams = {
+    appName:' 闪电借款王',
+    appPkgName :'shandianloanwap',
+    osType :1,
+    apkVersion:'1.0',
+    channel:'baidutongji0001',
+    isGroup:1
+}

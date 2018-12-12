@@ -49,7 +49,7 @@ class HomeContent extends React.Component{
        
     }
     handLinkMoves(){
-        this.props.history.push('/Move')
+        this.props.history.push('/home/Move')
     }
     componentDidMount(){
         document.addEventListener('scroll',()=>{

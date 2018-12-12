@@ -19,7 +19,13 @@ class Nav extends React.Component{
         this.setState({
             TabIndex:index
         })
-        console.log(this.props)
+        if(index===0){
+            this.props.history.push('/home')
+        }else if(index===1){
+            this.props.history.push('/home/move')
+        }else if(index===2){
+            this.props.history.push('/home/infoindex')
+        }
     }
     render(){
         const nav = this.state.Tab;

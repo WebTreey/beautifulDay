@@ -31,9 +31,13 @@ class InfoIndex extends React.Component{
     handBaidu(){
         this.getBaiDuAPI();
     }
+    handLinkMyinfo(){
+        this.props.history.push('/home/myinfo')
+    }
     componentDidMount(){
         this.getBaiDuAPI();
     }
+    
     render(){
         return(
             <div className="info">
@@ -56,7 +60,7 @@ class InfoIndex extends React.Component{
                 <div className="info-main">
                     <div className="info-main-1">
                         <ul>
-                            <li className="flex-conter">
+                            <li className="flex-conter" onClick={this.handLinkMyinfo.bind(this)}>
                                 <i className="icon icon-1"></i>
                                 <h3>个人信息</h3>
                                 <span className="flex-content"><img src={require('../../images/right-icon.jpg')}></img></span>

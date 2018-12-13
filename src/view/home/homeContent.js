@@ -1,6 +1,10 @@
 import React from 'react';
-import './home.scss';
+import {setCommparams} from '../../utils/API'
+import {getHomeInof} from '../../utils/config'
 import { withRouter } from 'react-router';
+import ReactSwiper from 'reactjs-swiper'
+import './home.scss';
+import { CombineLatestOperator } from 'rxjs/internal/observable/combineLatest';
 const Loding = (props)=>{
     return(
         <div className="home-loding flex-conter">
@@ -9,6 +13,35 @@ const Loding = (props)=>{
         </div>
     )
 }
+
+const ReactSwiperExample = () => {
+    const items = [{
+      image: 'http://alloyteam.github.io/AlloyTouch/example/asset/ci1.jpg',
+      title: '图片1',
+      link: 'http://jd.com'
+    }, {
+      image: 'http://alloyteam.github.io/AlloyTouch/example/asset/ci2.jpg',
+      title: '图片2',
+    }, {
+      image: 'http://alloyteam.github.io/AlloyTouch/example/asset/ci3.jpg',
+      title: '图片3',
+      link: 'http://jd.com'
+    }, {
+      image: 'http://alloyteam.github.io/AlloyTouch/example/asset/ci4.jpg',
+      title: '图片4',
+    }];
+   
+    const swiperOptions = {
+      preloadImages: true,
+      autoplay: 4000,
+      autoplayDisableOnInteraction: false
+    };
+    return (
+      <ReactSwiper swiperOptions={swiperOptions} showPagination items={items}
+                   className="swiper-example" />
+    );
+  };
+
 class HomeContent extends React.Component{
     constructor() {
         super();
@@ -16,9 +49,21 @@ class HomeContent extends React.Component{
             loding: false,
             list:[1],
             have:true,
+            bannerList:[]
         }
       }
 
+
+    setHomeinfo(){
+        getHomeInof(setCommparams).then((res)=>{
+            console.log(res.data)
+            this.setState({
+                bannerList:res.data.result.homeBannerList
+            })
+        });
+        
+    }
+    
     handBoydScroll(){
         const scrollHeight = document.documentElement.scrollHeight;
         const scrollTop = document.documentElement.scrollTop 
@@ -52,6 +97,7 @@ class HomeContent extends React.Component{
         this.props.history.push('/home/Move')
     }
     componentDidMount(){
+        this.setHomeinfo()
         document.addEventListener('scroll',()=>{
             this.handBoydScroll()
         })
@@ -60,13 +106,33 @@ class HomeContent extends React.Component{
         clearTimeout(this.tiems);
     }
     render(){
-       const list = this.state.list;
-       this.text = this.state.have ? '正在加载更多数据' : '没有数据了';
+        const list = this.state.list;
+        this.text = this.state.have ? '正在加载更多数据' : '没有数据了';
+       
+        const bannerList = this.state.bannerList || [];
+        //banner数据
+        let items =  bannerList.map((item,index)=>{
+            let obj = {};
+            obj.image = item.bannerImg;
+            obj.title = item.bannerName;
+            obj.link = item.linkUrl;
+            return(obj)
+        })
+        //配置banner滚动方式
+        const swiperOptions = {
+            preloadImages: true,
+            autoplay: 3000,
+            disableOnInteraction: false,
+            
+          };
+        
         return(
             <div className="home">
-                <div className="banner">
+                {/* <div className="banner">
                     <img src={require('../../images/banner.jpg')}></img>
-                </div>
+                </div> */}
+                <ReactSwiper swiperOptions={swiperOptions} showPagination items={items}
+                   className="swiper-example" />
                 <div className="main">
                     <div className="home-header ">
                         <ul className="flex-between">
@@ -143,5 +209,5 @@ class HomeContent extends React.Component{
         )
     }
 } 
-
+  
 export default withRouter(HomeContent)

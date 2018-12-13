@@ -15,23 +15,24 @@
    .com-input{
     height: inherit;
    }
-    form{
-        height: inherit; 
-        label{
-            flex: 1;padding: 0 .3rem;  font-size: .28rem;
-            span{
-                color: #f54d54;
-            }
-            img{
-                width: .34rem
-            }
+    
+}
+form{
+    height: inherit; 
+    label{
+        flex: 1;padding: 0 .3rem;  font-size: .28rem;
+        span{
+            color: #f54d54;
         }
-        label:first-child{
-            border-bottom: 1px solid #e9e9e9;
+        img{
+            width: .34rem
         }
-        input{
-            font-size: .28rem;
-        }
+    }
+    label{
+        border-bottom: 1px solid #e9e9e9;
+    }
+    input{
+        font-size: .28rem;
     }
 }
 .login-protocol{

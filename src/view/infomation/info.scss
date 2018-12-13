@@ -56,6 +56,12 @@
                 color: #999999; font-size: .3rem
             }
         }
+        .Picker{
+            flex: 1;
+        }
+        input{
+            flex: 1; font-size: .27rem;  text-align: right; margin: .05rem 0 0 0;
+        }
     }
     .icon{
         background: url('../../images/info-icon.png') no-repeat; background-size: 3.5rem .5rem;  width: .3rem; height: .3rem;  margin: 0 .4rem  0 0 ;
@@ -81,4 +87,41 @@
     .icon-7{
         background-position: -3.1rem -.1rem;
     }
+}
+.info-me{
+     margin: .2rem 0 0 0;
+}
+.info-me-ul{
+    li{
+        padding: 0 .4rem; background: #fff;
+    }
+}
+.info-btn{
+    height: .95rem; line-height: .95rem; text-align: center; background: #fff; display: block; width: 100%; margin: .45rem 0 0 0
+}
+
+.info-input{
+     background: #fff; border-radius: .1rem;
+     label{
+         height: 1rem;
+     }
+     input{
+         flex: 1; text-align: right
+     }
+}
+.info-code-fs{
+    text-align: center; margin: .4rem 0 0 0; color: #999999; font-size: .24rem; padding: 0 .3rem
+}
+
+.am-list-item{
+    padding-left:0 !important;
+}
+.am-list-item .am-list-line{
+    padding-right:0 !important
+}
+.am-list-item .am-list-line .am-list-content{
+    font-size: inherit !important;
+}
+.am-list-item .am-list-line .am-list-arrow {
+    width: .14rem !important; margin:  .08rem 0 0 .2rem !important;
 }

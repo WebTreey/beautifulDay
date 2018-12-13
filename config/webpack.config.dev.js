@@ -221,6 +221,7 @@ module.exports = {
               ),
               
               plugins: [
+                ["import", { libraryName: "antd-mobile", style: "css" }], // `style: true` 会加载 less 文件
                 [
                   require.resolve('babel-plugin-named-asset-import'),
                   {
@@ -409,6 +410,7 @@ module.exports = {
         silent: true,
         formatter: typescriptFormatter,
       }),
+     
   ].filter(Boolean),
 
   // Some libraries import Node modules but don't use them in the browser.

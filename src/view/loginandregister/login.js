@@ -189,7 +189,7 @@ class LoginFun2 extends React.Component{
                     <input type="text" placeholder="请输入您的手机号" value={this.state.phone} onChange={this.handPhoneChange.bind(this)}></input>
                     </label>
                     <label className="flex-between">
-                    <input type={this.state.inputtype} placeholder="请输入您的登录密码" value={this.state.codevalue} onChange={this.handCodeChange.bind(this)}></input>
+                    <input type={this.state.inputtype} placeholder="请输入您的登录密码" value={this.state.codevalue}></input>
                     <img src={this.state.imgurl} onClick={this.handImgClick.bind(this)}></img>
                     </label>
                 </form>

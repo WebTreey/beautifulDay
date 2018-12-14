@@ -8,11 +8,14 @@ $alignCenter:center;
 .main{
     margin-top: $mt2;
     .home-header{
-        height: 1.75rem; background: #fff;
+        height: 1.75rem; background: #fff; overflow: hidden;
         ul{
             height: inherit ;
             li {
-                flex:1; box-sizing: border-box;
+                flex:1; box-sizing: border-box;   height: inherit ; 
+                a{
+                    height: inherit ; display: block;
+                }
             }
             li:first-child{
                 border-right: 1px solid $borderColor
@@ -25,7 +28,7 @@ $alignCenter:center;
         .home-recommend-header{
             height: .85rem; border-bottom: 1px solid $borderColor;
             .home-recommend-icon{
-                height: .4rem; width: .4rem; background: $borderColor; border-radius: .1rem; margin: 0 0 0 .3rem; 
+                height: .4rem; width: .4rem;  border-radius: .1rem; margin: 0 0 0 .3rem; 
             }
             .home-recommend-title{
                 flex: 1; text-align: left;
@@ -83,7 +86,7 @@ $alignCenter:center;
             .home-item-icon{
                 color: #666666;
                 span{
-                    width: .4rem; height: .4rem; border-radius: .1rem; background: $borderColor; margin: 0 .2rem 0 0;
+                    width: .4rem; height: .4rem; border-radius: .1rem; margin: 0 .2rem 0 0;
                 }
             }
             .home-item-bottom{

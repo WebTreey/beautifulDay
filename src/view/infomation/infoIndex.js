@@ -34,6 +34,9 @@ class InfoIndex extends React.Component{
     handLinkMyinfo(){
         this.props.history.push('/home/myinfo')
     }
+    handLinkCarrProving(){
+        this.props.history.push('/CarrProving')
+    }
     componentDidMount(){
         this.getBaiDuAPI();
     }
@@ -44,15 +47,15 @@ class InfoIndex extends React.Component{
                 <div id="allmap" style={{display:'none'}}></div>
                 <div className="info-header">
                     <div className="info-position flex-content">
-                    <img src={require('../../images/dingwei.png')}></img>
+                    <img alt="闪电贷" src={require('../../images/dingwei.png')}></img>
                     <span onClick={this.handBaidu.bind(this)}>{this.state.city}</span>
                     </div>
                     <div className="info-xx">
-                        <img src={require('../../images/xiaoxi.png')}></img>
+                        <img alt="闪电贷" src={require('../../images/xiaoxi.png')}></img>
                         <span>12</span>
                     </div>
                     <div className="info-grxx flex-column">
-                        <img src={require('../../images/my-photo.jpg')}></img>
+                        <img alt="闪电贷" src={require('../../images/my-photo.jpg')}></img>
                         <span className="flex-content"><em>15989652154</em><img src={require("../../images/right-icon.jpg")}></img></span>
                         <button className="info-grxx-btn">去认证</button>
                     </div>
@@ -63,22 +66,22 @@ class InfoIndex extends React.Component{
                             <li className="flex-conter" onClick={this.handLinkMyinfo.bind(this)}>
                                 <i className="icon icon-1"></i>
                                 <h3>个人信息</h3>
-                                <span className="flex-content"><img src={require('../../images/right-icon.jpg')}></img></span>
+                                <span className="flex-content"><img alt="闪电贷" src={require('../../images/right-icon.jpg')}></img></span>
                             </li>
                             <li className="flex-conter">
                                 <i className="icon icon-2"></i>
                                 <h3>黑名单检测</h3>
-                                <span className="flex-content"><em>去查询</em><img src={require('../../images/right-icon.jpg')}></img></span>
+                                <span className="flex-content"><em>去查询</em><img alt="闪电贷" src={require('../../images/right-icon.jpg')}></img></span>
                             </li>
-                            <li className="flex-conter">
+                            <li className="flex-conter" onClick={this.handLinkCarrProving.bind(this)}>
                                 <i className="icon icon-3"></i>
                                 <h3>运营商检测</h3>
-                                <span className="flex-content"><em>去查询</em><img src={require('../../images/right-icon.jpg')}></img></span>
+                                <span className="flex-content"><em>去查询</em><img alt="闪电贷" src={require('../../images/right-icon.jpg')}></img></span>
                             </li>
                             <li className="flex-conter">
                                 <i className="icon icon-4"></i>
                                 <h3>设置密码</h3>
-                                <span className="flex-content"><em>去设置</em><img src={require('../../images/right-icon.jpg')}></img></span>
+                                <span className="flex-content"><em>去设置</em><img alt="闪电贷" src={require('../../images/right-icon.jpg')}></img></span>
                             </li>
                         </ul>
                     </div>
@@ -87,17 +90,17 @@ class InfoIndex extends React.Component{
                             <li className="flex-conter">
                                 <i className="icon icon-5"></i>
                                 <h3>关于我们</h3>
-                                <span className="flex-content"><em></em><img src={require('../../images/right-icon.jpg')}></img></span>
+                                <span className="flex-content"><em></em><img alt="闪电贷" src={require('../../images/right-icon.jpg')}></img></span>
                             </li>
                             <li className="flex-conter">
                                 <i className="icon icon-6"></i>
                                 <h3>帮助中心</h3>
-                                <span className="flex-content"><em></em><img src={require('../../images/right-icon.jpg')}></img></span>
+                                <span className="flex-content"><em></em><img alt="闪电贷" src={require('../../images/right-icon.jpg')}></img></span>
                             </li>
                             <li className="flex-conter">
                                 <i className="icon icon-7"></i>
                                 <h3>关注微信</h3>
-                                <span className="flex-content"><em></em><img src={require('../../images/right-icon.jpg')}></img></span>
+                                <span className="flex-content"><em></em><img alt="闪电贷" src={require('../../images/right-icon.jpg')}></img></span>
                             </li>
                         </ul>
                     </div>

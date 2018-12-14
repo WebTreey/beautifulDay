@@ -47,3 +47,22 @@
 .guide-banq{
     color: #bdbdbd; font-size: .22rem; position: fixed; bottom: .5rem; width: 100%; text-align: center;
 }
+
+.err-box-404{
+    color: #999;
+  img{
+      width: 2.12rem; height: 1.62rem; 
+  }
+  h3{
+    font-size: .34rem;  margin: .3rem 0 .2rem 0;
+  }
+  p{
+      font-size: .26rem; 
+  }
+  div{
+      margin: .4rem 0 0 0;
+      span{
+        color: #fa573a
+      }
+  }
+}

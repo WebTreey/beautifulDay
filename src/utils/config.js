@@ -1,5 +1,5 @@
 import Axios from 'axios';
-const HOST = 'http://113.31.86.153:41070';
+const HOST = 'http://113.31.86.153:41090';
 
 export const getHomeInof = (data) =>{
     return Axios({

@@ -48,6 +48,7 @@
     "react-app-rewired": "^1.6.2",
     "react-dev-utils": "^6.1.1",
     "react-dom": "^16.6.3",
+    "react-iscroll": "^2.0.3",
     "react-router-dom": "^4.3.1",
     "reactjs-swiper": "^0.1.0",
     "resolve": "1.8.1",

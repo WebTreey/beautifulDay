@@ -1,7 +1,9 @@
 /*
+    author：孟剑
     Date:2018/12/07,
     USE:验证，通用
 */
+
 //纯数字输入
 export const ProvingMobile = (value = "", length) => {
     let s = value.length > length ? (value + '').substring(0, length) : value;
@@ -109,15 +111,53 @@ export const ukey = () => {
     return k
 }
 
-//固定参数
-export const setCommparams = {
-    appName: ' 闪电借款王',
-    appPkgName: 'shandianloanwap',
-    osType: 1,
-    apkVersion: '1.0',
-    channel: 'baidutongji0001',
-    isGroup: 1,
-    phone: '13312345678',
-    city: '深圳市',
-    imei: ukey()
-}
+//手机号码加密
+export const setCommparams = ()=> {
+    const u = navigator.userAgent;
+    const isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    const isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    let obj = {};
+    if(isAndroid || isiOS){
+        try {
+            obj = window.idai.getCommonParams()
+            if (typeof obj !== 'object') {
+                obj = JSON.parse(obj);
+            }
+            return {
+                appName:obj.appName,
+                appPkgName:obj.appPkgName,
+                os_type:obj.os_type,
+                channel:obj.channel,
+                imei:obj.imei,
+                apk_version:obj.apk_version,
+                phone:obj.phone
+            }
+        }catch(err){
+            if(isiOS){
+                obj={
+                    appName:'ios',
+                    appPkgName:'com.zhangzhong.yingzi',
+                    os_type:1,
+                    channel:'1.1.0',
+                    imei:'ios',
+                    apk_version:'1.1.0',
+                    phone:'13312345678',
+                    
+                }
+            }
+            if(isAndroid){
+                obj={
+                    appName:'andriod',
+                    appPkgName:'com.zhangzhong.yingzi',
+                    os_type:1,
+                    channel:'1.1.0',
+                    imei:'andriod',
+                    apk_version:'1.1.0',
+                    phone:'13312345678',
+                }
+            }
+        }
+    }
+    return obj
+}  
+    

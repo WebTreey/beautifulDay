@@ -48,7 +48,7 @@ export const GetQueryString = (param) => { //param为要获取的参数名 注:�
         arr = arr[1].split("&"); //分割参数
         for (var i = 0; i < arr.length; i++) {
             var tem = arr[i].split("="); //分割参数名和参数内容
-            if (tem[0] == param) {
+            if (tem[0] === param) {
                 return tem[1];
             }
         }

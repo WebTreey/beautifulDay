@@ -3,7 +3,6 @@
     Date:2018/12/07,
     USE:验证，通用
 */
-
 //纯数字输入
 export const ProvingMobile = (value = "", length) => {
     let s = value.length > length ? (value + '').substring(0, length) : value;
@@ -111,7 +110,7 @@ export const ukey = () => {
     return k
 }
 
-//手机号码加密
+//手机号码加密(公共参数)
 export const setCommparams = ()=> {
     const u = navigator.userAgent;
     const isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
@@ -119,45 +118,43 @@ export const setCommparams = ()=> {
     let obj = {};
     if(isAndroid || isiOS){
         try {
-            obj = window.idai.getCommonParams()
-            if (typeof obj !== 'object') {
-                obj = JSON.parse(obj);
-            }
             return {
-                appName:obj.appName,
-                appPkgName:obj.appPkgName,
-                os_type:obj.os_type,
-                channel:obj.channel,
-                imei:obj.imei,
-                apk_version:obj.apk_version,
-                phone:obj.phone
+                appName:window.idai.getAppName(),
+                appPkgName:window.idai.getPkgName(),
+                os_type:window.idai.getOsType(),
+                channel:window.idai.getChannel(),
+                imei:window.idai.getImei(),
+                apk_version:window.idai.getVersion()
+                // phone:window.idai.getUserPhone()
             }
         }catch(err){
+
+            // return {}
+
             if(isiOS){
-                obj={
+                return{
                     appName:'ios',
                     appPkgName:'com.zhangzhong.yingzi',
                     os_type:1,
                     channel:'1.1.0',
                     imei:'ios',
-                    apk_version:'1.1.0',
-                    phone:'13312345678',
-                    
+                    apk_version:'1.1.0'
                 }
             }
             if(isAndroid){
-                obj={
+                return{
                     appName:'andriod',
                     appPkgName:'com.zhangzhong.yingzi',
                     os_type:1,
                     channel:'1.1.0',
                     imei:'andriod',
-                    apk_version:'1.1.0',
-                    phone:'13312345678',
+                    apk_version:'1.1.0'
+                  
                 }
             }
+
+
         }
     }
-    return obj
 }  
     

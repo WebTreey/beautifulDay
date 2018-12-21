@@ -1,6 +1,6 @@
 import Axios from 'axios';
 // const HOST = 'http://192.168.1.191:9080';
-
+// http://113.31.86.153:41070
 const getHost = () =>{
     const wd = document.domain;
     let port = window.location.port || '';
@@ -9,7 +9,7 @@ const getHost = () =>{
     const host = http + wd + port
     console.log(wd,port,host)
     if(host.indexOf('localhost')>-1 || host.indexOf('192.168.1.188')>-1 ){
-        return 'http://192.168.1.191:9080'
+        return 'http://113.31.86.153:41070'
     }else{
         return host
     }
@@ -68,6 +68,17 @@ export const getSendSms = (data) =>{
     return Axios({
         method: 'post',
         url: HOST + '/front/sendSms',
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        params: data
+    })
+}
+//登录
+export const getCodelogin = (data) =>{
+    return Axios({
+        method: 'post',
+        url: HOST + '/nloan/codelogin',
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },

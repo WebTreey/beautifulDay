@@ -107,7 +107,7 @@
 .home-erwer{
     background: #fff; border-radius: .2rem; width: 5.6rem; height: 5.9rem;
     img{
-        width:3.57rem; height: 4.06rem;
+        width:3.57rem; height: 4.06rem; 
     }
     p{
         color: #333; font-size: .3rem;  padding: .2rem 0 0 0;
@@ -210,6 +210,12 @@
         }
         .home-login-btn{
             height: 1rem; line-height: 1rem; background: #ff5b01; color: #fff; border-radius: .1rem; text-align: center; margin: .3rem 0 0 0;
+        }
+    }
+    .home-tishi{
+        margin: .4rem 0 .2rem 0;
+        p{
+            font-size: .24rem; color: #999; line-height: .4rem;
         }
     }
 }

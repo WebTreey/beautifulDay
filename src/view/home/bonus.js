@@ -1,9 +1,11 @@
 import React from 'react';
 import './home.scss';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
-import {setCommparams} from '../../utils/API'
+import {setCommparams,myStorage} from '../../utils/API'
 import {getGtPrges,getGtUrBs,getClkLg} from '../../utils/config'
 import {PromptBox} from '../../components/prompt/prompt'
+import {Encrypt} from '../../utils/RSA'
+
 const CashCard = (props) =>{
     const data = props.data
     return(
@@ -100,7 +102,7 @@ export default class Bonus extends React.Component{
     }
     //点击日志
     setClkLg(name){
-        getClkLg(Object.assign({},setCommparams(),{clickType:2,proName:name}));
+        getClkLg(Object.assign({},setCommparams(),{clickType:2,proName:name}),{phone:Encrypt(myStorage.get('phone'))});
     }
     //拷贝
     handCopy(){
@@ -135,7 +137,7 @@ export default class Bonus extends React.Component{
     }
     //提现码
     handCashCode(){
-        const data = this.state.GtUrBsdata
+        const data = this.state.GtUrBsdata || {}
         if(data.status==='1' && parseInt(data.rewardAmt)!==0)
         this.setState({
             code:true
@@ -143,10 +145,14 @@ export default class Bonus extends React.Component{
         this.setClkLg('提现码');
     }
     componentDidMount(){
-        const data = setCommparams();
+        console.log(myStorage.get('phone'));
+        const data = Object.assign({},setCommparams(),{phone:Encrypt(myStorage.get('phone'))})
         this.setGtPrges(data);
         this.setGtUrBs(data);
-        getClkLg(Object.assign({},data,{clickType:1}));
+        if(myStorage.get('phone')){
+            getClkLg(Object.assign({},data,{clickType:1},{phone:Encrypt(myStorage.get('phone'))}));
+        }
+        
     }
     render(){
         document.title = '我的奖金'
@@ -180,11 +186,18 @@ export default class Bonus extends React.Component{
                         </h4>
                         <ul>
                             {data.length ? data.map((item,index)=>{
-                                item = item ? item : {};
+                                let loanStatus = ''
+                                if(item.loanStatus===1){
+                                    loanStatus = '申请成功'
+                                }else if(item.loanStatus===2){
+                                    loanStatus = '放款成功'
+                                }else{
+                                    loanStatus = '--'
+                                }
                                 return(
                                 <li className="flex-between" key={index}>
                                     <span>{item.proName}</span>
-                                    <span>{item.loanStatus===1 ? '申请成功': '放款成功'}</span>
+                                    <span>{loanStatus}</span>
                                 </li>
                                 )
                             }):<li  className="flex-column"><img alt="s" src={require('../../images/not_page.png')}></img><p>暂无数据</p></li>}

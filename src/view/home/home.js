@@ -392,10 +392,11 @@ export default class Home extends React.Component{
             })
             data = Object.assign({},setCommparams(),{phone:Encrypt(myStorage.get('phone'))})
             this.handLogin();
+            this.setGtUrBs(data);
             getClkLg(Object.assign({},data,{clickType:1},{phone:Encrypt(myStorage.get('phone'))}));
         }
         this.setPullProLt(data);
-        this.setGtUrBs(data);
+       
     }
     render(){
        const comMyOrLoing =  !this.state.isLogin ?  <LoginBtn IsGetLogin={this.handLogin.bind(this,true)}></LoginBtn> : <MyRewart data={this.state.GtUrBsdata} handLinkBonus={this.handLinkBonus.bind(this)} handCash = {this.handCash.bind(this)}></MyRewart> 
@@ -478,10 +479,10 @@ export default class Home extends React.Component{
                                         <i>
                                             <img alt="圣诞" src={item.proIcon}></img>
                                         </i>
-                                        <div className="flex-column-left">
+                                        <div className="flex-column-left home-list-content">
                                             <h4>{item.frontName}</h4>
-                                            <p>{item.proRecom}</p>
                                             <p>{item.limitText}</p>
+                                            <p>{item.proRecom}</p>
                                         </div>
                                         <em>
                                             <img alt="圣诞" src={require('../../images/Apply_btn.png')} data-backname={item.backName} data-name={item.frontName} data-url={item.h5Link} onClick={this.handISactive.bind(this)}></img>

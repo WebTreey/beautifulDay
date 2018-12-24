@@ -129,29 +129,29 @@ export const setCommparams = ()=> {
             }
         }catch(err){
 
-            // return {}
+            return {}
 
-            if(isiOS){
-                return{
-                    appName:'ios',
-                    appPkgName:'com.zhangzhong.yingzi',
-                    os_type:1,
-                    channel:'1.1.0',
-                    imei:'ios',
-                    apk_version:'1.1.0'
-                }
-            }
-            if(isAndroid){
-                return{
-                    appName:'andriod',
-                    appPkgName:'com.zhangzhong.yingzi',
-                    os_type:1,
-                    channel:'1.1.0',
-                    imei:'andriod',
-                    apk_version:'1.1.0'
+            // if(isiOS){
+            //     return{
+            //         appName:'ios',
+            //         appPkgName:'com.zhangzhong.yingzi',
+            //         os_type:1,
+            //         channel:'1.1.0',
+            //         imei:'ios',
+            //         apk_version:'1.1.0'
+            //     }
+            // }
+            // if(isAndroid){
+            //     return{
+            //         appName:'andriod',
+            //         appPkgName:'com.zhangzhong.yingzi',
+            //         os_type:1,
+            //         channel:'1.1.0',
+            //         imei:'andriod',
+            //         apk_version:'1.1.0'
                   
-                }
-            }
+            //     }
+            // }
 
 
         }
